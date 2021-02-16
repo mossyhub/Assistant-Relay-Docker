@@ -1,5 +1,5 @@
 ARG BUILD_FROM
-FROM node:buster
+FROM node:alpine
 
 ENV LANG C.UTF-8
 ENV VERSION=$VERSION
