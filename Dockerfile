@@ -7,6 +7,7 @@ ENV BUILD_DATE=$BUILD_DATE
 
 RUN mkdir -p /assistant_relay/bin \
 && touch /assistant_relay/bin/config.json \
+&& pip3 install catt \
 && npm i pm2 -g
 
 WORKDIR /assistant_relay
