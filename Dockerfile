@@ -4,23 +4,21 @@ FROM node
 ENV LANG C.UTF-8
 ENV VERSION=$VERSION
 ENV BUILD_DATE=$BUILD_DATE
+ENV jwtSecret=Assistant-Relay-2020
 
-RUN mkdir -p /assistant_relay/bin \
-&& touch /assistant_relay/bin/config.json \
-&& apk add --no-cache python3 py3-pip \
-&& apk add --no-cache python3 \
-&& pip3 install catt \
-&& rm -rf /root/.cache/pip \
-&& npm i pm2 -g
+RUN apt-get update \
+    && apt-get install -y apt-transport-https \
+        git \
+        python3-pip \
+    && pip3 install catt \
+    && git clone -b master https://github.com/greghesp/assistant-relay
 
-WORKDIR /assistant_relay
+WORKDIR /assistant-relay
 
-RUN wget https://github.com/greghesp/assistant-relay/releases/download/v3.3.2b/release.zip \
-&& unzip release.zip \
-&& rm release.zip \
+RUN npm i pm2 -g \
 && npm i
 
 WORKDIR /
-RUN wget https://github.com/mossyhub/Assistant-Relay-Docker/blob/master/run.sh
+COPY run.sh /run.sh
 RUN chmod a+x /run.sh
 CMD [ "/run.sh" ]
