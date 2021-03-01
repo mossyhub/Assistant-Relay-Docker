@@ -1,2 +1,2 @@
-cd /assistant_relay
+cd /assistant-relay
 npm run start
