@@ -19,6 +19,6 @@ RUN npm i pm2 -g \
 && npm i
 
 WORKDIR /
-RUN wget https://github.com/mossyhub/Assistant-Relay-Docker/blob/master/run.sh
-RUN chmod a+x /run.sh
-CMD [ "/run.sh" ]
+RUN wget https://github.com/mossyhub/Assistant-Relay-Docker/blob/master/run2.sh
+RUN chmod a+x /run2.sh
+CMD [ "/run2.sh" ]
