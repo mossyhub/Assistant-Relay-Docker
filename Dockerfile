@@ -11,12 +11,12 @@ RUN mkdir -p /assistant_relay/bin \
 
 WORKDIR /assistant_relay
 
-RUN wget https://github.com/greghesp/assistant-relay/releases/download/v3.3.1b/release.zip \
+RUN wget https://github.com/greghesp/assistant-relay/releases/download/v3.2.0/release.zip \
 && unzip release.zip \
 && rm release.zip \
 && npm i
 
 WORKDIR /
-RUN wget https://raw.githubusercontent.com/Apipa169/Assistant-Relay-Docker/master/run.sh
+RUN wget https://github.com/mossyhub/Assistant-Relay-Docker/blob/master/run.sh
 RUN chmod a+x /run.sh
 CMD [ "/run.sh" ]
