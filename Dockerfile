@@ -21,4 +21,4 @@ RUN npm i pm2 -g \
 WORKDIR /
 RUN wget https://github.com/mossyhub/Assistant-Relay-Docker/blob/dev/run.sh
 RUN chmod a+x /run.sh
-CMD [ "/run.sh" ]h" ]
+CMD [ "/run.sh" ]
