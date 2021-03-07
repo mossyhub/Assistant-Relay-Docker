@@ -1,3 +1,4 @@
+
 ARG BUILD_FROM
 FROM node
 
@@ -19,6 +20,6 @@ RUN npm i pm2 -g \
 && npm i
 
 WORKDIR /
-RUN wget https://github.com/mossyhub/Assistant-Relay-Docker/blob/dev/run.sh
+COPY run.sh /run.sh
 RUN chmod a+x /run.sh
 CMD [ "/run.sh" ]
